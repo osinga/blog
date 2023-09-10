@@ -20,7 +20,7 @@
 		"shikiji": "^0.6.6"
 	},
 	"devDependencies": {
-		"@types/node": "^20.5.2",
+		"@types/node": "^20.6.0",
 		"@types/react": "^18.2.20",
 		"@types/react-dom": "^18.2.7",
 		"autoprefixer": "^10.4.15",
