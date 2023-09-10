@@ -1,0 +1,48 @@
+import NextLink from 'next/link'
+import { Braces, Rss } from 'lucide-react'
+
+import { Image, Link, Strong } from '@/components/ui'
+import { Menu } from '@/components/ui/client'
+import icon from '@/app/icon.png'
+
+type HeaderProps = Omit<React.ComponentPropsWithoutRef<'header'>, 'children'>
+
+const Header = ({
+	className = '',
+	...props
+}: HeaderProps) => (
+	<header className={`flex items-center justify-between ${className}`} {...props}>
+		<Link className="group flex gap-4" href="/" variant="plain">
+			<Image
+				alt="Avatar"
+				className="h-12 w-12 transition group-hover:-rotate-12 group-hover:scale-105 group-hover:drop-shadow-md"
+				src={icon}
+			/>
+
+			<div className="grid gap-1">
+				<Strong className="font-bold text-2xl/none group-hover:text-inherit">Osinga</Strong>
+				<span className="font-medium text-sm/none text-secondary">On my interests</span>
+			</div>
+		</Link>
+
+		<Menu.Root>
+			<Menu.Trigger aria-label="Feeds">
+				<Rss />
+			</Menu.Trigger>
+			<Menu.Content align="end">
+				<Menu.Item asChild>
+					<NextLink href="/posts/feed.atom"><Rss /> Atom</NextLink>
+				</Menu.Item>
+				<Menu.Item asChild>
+					<NextLink href="/posts/feed.rss"><Rss /> RSS</NextLink>
+				</Menu.Item>
+				<Menu.Separator />
+				<Menu.Item asChild>
+					<NextLink href="/posts/feed.json"><Braces /> JSON</NextLink>
+				</Menu.Item>
+			</Menu.Content>
+		</Menu.Root>
+	</header>
+)
+
+export default Header
