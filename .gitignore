@@ -1,0 +1,7 @@
+# Dependencies
+node_modules
+
+# Output
+.contentlayer
+.next
+next-env.d.ts
