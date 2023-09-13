@@ -28,19 +28,21 @@ const feed = async (type: 'atom' | 'json' | 'rss') => {
 		},
 	})
 
-	allPosts.forEach(post => {
-		const map = evaluateSync(post.body.raw, { ...runtime, Fragment, development: false })
-		const content = renderToString(createElement(map.default))
+	allPosts
+		.sort((a, b) => b.published.localeCompare(a.published))
+		.forEach(post => {
+			const map = evaluateSync(post.body.raw, { ...runtime, Fragment, development: false })
+			const content = renderToString(createElement(map.default))
 
-		feed.addItem({
-			id: `https://osinga.blog/posts/${post.slug}`,
-			title: post.title,
-			description: post.description,
-			content,
-			date: new Date(post.published),
-			link: `https://osinga.blog/posts/${post.slug}`,
+			feed.addItem({
+				id: `https://osinga.blog/posts/${post.slug}`,
+				title: post.title,
+				description: post.description,
+				content,
+				date: new Date(post.published),
+				link: `https://osinga.blog/posts/${post.slug}`,
+			})
 		})
-	})
 
 	const variant = {
 		atom: { generate: feed.atom1, type: 'application/xml' },
