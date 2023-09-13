@@ -1,0 +1,55 @@
+---
+title: On Video Collages
+description: How to combine videos using iMovie and Keynote.
+published: 2023-09-13
+---
+
+I recently had to create a video that included a collage. With [iMovie](https://apps.apple.com/app/imovie/id377298193) you can add a video on top of another using [picture-in-picture](https://support.apple.com/guide/imovie/create-a-picture-in-picture-effect-mova1aaa682b/mac), but that's limited to only one.
+
+Fortunately, I found a workaround to create collages without having to install a third-party app. It uses Apple’s [Keynote](https://apps.apple.com/app/keynote/id361285480), which you might already have pre-installed. If not, it’s another free download, just like iMovie.
+
+## Instructions
+
+For each of the clips that you want to include in the collage:
+
+1. **In iMovie:**
+    1. Isolate the clip
+    2. Go to **File → Share → File…** in the menu bar
+    3. Follow the steps and save the file
+2. **In Keynote:**
+    1. Create an empty slide
+    2. Drag the file from 1.3. into it
+    3. Under **Format → Movie**, deselect **Start movie on click**
+
+Once you have all your clips added, you can preview the result by clicking **Play** or hitting `Option-Command-P`. When you’re happy with everything:
+
+1. Go to **File → Export To → Movie…** in the menu bar
+2. Set **Go to next slide after** to `0` seconds to prevent this time from being appended to the video
+3. Follow the steps and save the movie
+
+Your collage is now ready to be imported into iMovie.
+
+## Tips
+
+### Iterative Process
+In case your collage is part of a larger video, I recommend keeping the clips in a separate iMovie project so that you can come back later to make changes.
+
+### Keynote Only
+I find iMovie works well for editing clips, as the feedback loop is quick. The audiowave guides you in trimming the clip, clicking somewhere with the mouse and then hitting `Space` will let you preview the result, and you can easily see the duration of all your clips by hovering over them.
+
+For quick and simple collages, though, you can also do this with only Keynote. After dragging in a video, select it, then go to **Format → Movie**. Under **Edit Movie** you can trim it as needed.
+
+### Portrait Mode
+If you want to include clips that were shot in portrait mode, you’ll find it exports from iMovie with black bars on the sides. To prevent this:
+
+1. **In iMovie:**
+    1. Select the clip
+    2. Click the **Cropping** button just above the video preview
+    3. Rotate the clip so that it’s on its side
+2. Export from iMovie and import into Keynote following the [instructions](#instructions)
+3. **In Keynote:**
+    1. Select the clip
+    2. Click **Format → Arrange** in the top right
+    3. Under **Rotate**, set the angle to correct for your earlier rotation (either `-90` or `90`, depending on how you rotated it)
+
+Your clip will now be showing normally and without black bars. Note that the height and width of the clip still reflect the imported rotated clip, so you’ll need to take that into account when making changes there.
