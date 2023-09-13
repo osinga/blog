@@ -29,6 +29,7 @@ const feed = async (type: 'atom' | 'json' | 'rss') => {
 	})
 
 	allPosts
+		.filter(post => process.env.NODE_ENV === 'production' ? post.slug !== 'style-guide' : true)
 		.sort((a, b) => b.published.localeCompare(a.published))
 		.forEach(post => {
 			const map = evaluateSync(post.body.raw, { ...runtime, Fragment, development: false })
