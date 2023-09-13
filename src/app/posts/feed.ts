@@ -10,13 +10,13 @@ const feed = async (type: 'atom' | 'json' | 'rss') => {
 	const { renderToString } = await import('react-dom/server')
 
 	const feed = new Feed({
-		id: 'https://osinga.blog/posts',
+		id: 'https://osinga.blog',
 		title: 'Osinga',
 		description: 'On my interests.',
 		copyright: `${new Date().getFullYear()} Osinga`,
 		favicon: 'https://osinga.blog/favicon.ico',
 		language: 'en',
-		link: 'https://osinga.blog/posts',
+		link: 'https://osinga.blog',
 		author: {
 			name: 'Osinga',
 			email: 'contact@osinga.blog',
@@ -28,19 +28,23 @@ const feed = async (type: 'atom' | 'json' | 'rss') => {
 		},
 	})
 
-	allPosts.forEach(post => {
-		const map = evaluateSync(post.body.raw, { ...runtime, Fragment, development: false })
-		const content = renderToString(createElement(map.default))
+	allPosts
+		.filter(post => process.env.NODE_ENV === 'production' ? post.slug !== 'style-guide' : true)
+		.sort((a, b) => b.published.localeCompare(a.published))
+		.forEach(post => {
+			const map = evaluateSync(post.body.raw, { ...runtime, Fragment, development: false })
+			const content = renderToString(createElement(map.default))
 
-		feed.addItem({
-			id: `https://osinga.blog/posts/${post.slug}`,
-			title: post.title,
-			description: post.description,
-			content,
-			date: new Date(post.published),
-			link: `https://osinga.blog/posts/${post.slug}`,
+			feed.addItem({
+				id: `https://osinga.blog/posts/${post.slug}`,
+				title: post.title,
+				description: post.description,
+				content,
+				author: [feed.options.author!],
+				date: new Date(post.published),
+				link: `https://osinga.blog/posts/${post.slug}`,
+			})
 		})
-	})
 
 	const variant = {
 		atom: { generate: feed.atom1, type: 'application/xml' },
