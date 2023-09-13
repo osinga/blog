@@ -10,13 +10,13 @@ const feed = async (type: 'atom' | 'json' | 'rss') => {
 	const { renderToString } = await import('react-dom/server')
 
 	const feed = new Feed({
-		id: 'https://osinga.blog/posts',
+		id: 'https://osinga.blog',
 		title: 'Osinga',
 		description: 'On my interests.',
 		copyright: `${new Date().getFullYear()} Osinga`,
 		favicon: 'https://osinga.blog/favicon.ico',
 		language: 'en',
-		link: 'https://osinga.blog/posts',
+		link: 'https://osinga.blog',
 		author: {
 			name: 'Osinga',
 			email: 'contact@osinga.blog',
