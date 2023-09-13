@@ -40,6 +40,7 @@ const feed = async (type: 'atom' | 'json' | 'rss') => {
 				title: post.title,
 				description: post.description,
 				content,
+				author: [feed.options.author!],
 				date: new Date(post.published),
 				link: `https://osinga.blog/posts/${post.slug}`,
 			})
