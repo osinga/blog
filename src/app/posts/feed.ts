@@ -19,7 +19,6 @@ const feed = async (type: 'atom' | 'json' | 'rss') => {
 		link: 'https://osinga.blog',
 		author: {
 			name: 'Osinga',
-			email: 'contact@osinga.blog',
 		},
 		feedLinks: {
 			atom: 'https://osinga.blog/posts/feed.atom',
