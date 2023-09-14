@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { ArrowUpRight, Mail } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { forwardRef } from 'react'
 
 type LinkRef = React.ComponentRef<typeof NextLink>
@@ -14,7 +14,6 @@ const Link = forwardRef<LinkRef, LinkProps>(({
 	...props
 }, ref) => {
 	const isExternal = props.href.toString().startsWith('https://')
-	const isEmail = props.href.toString().startsWith('mailto:')
 
 	return (
 		<NextLink
@@ -28,7 +27,6 @@ const Link = forwardRef<LinkRef, LinkProps>(({
 		>
 			{children}
 			{isExternal && <ArrowUpRight className="text-sm" />}
-			{isEmail && <Mail className="mt-0.5 text-sm" />}
 		</NextLink>
 	)
 })
