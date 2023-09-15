@@ -1,9 +1,9 @@
 import NextLink from 'next/link'
 import { Braces, Rss } from 'lucide-react'
 
+import icon from '@/app/icon.svg'
 import { Image, Link, Strong } from '@/components/ui'
 import { Menu } from '@/components/ui/client'
-import icon from '@/app/icon.png'
 
 type HeaderProps = Omit<React.ComponentPropsWithoutRef<'header'>, 'children'>
 
