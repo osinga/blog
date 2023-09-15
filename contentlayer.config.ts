@@ -3,6 +3,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 // @ts-expect-error
 import rehypeSlug from 'rehype-slug'
 // @ts-expect-error
+import remarkSmartypants from 'remark-smartypants'
+// @ts-expect-error
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 const Post = defineDocumentType(() => ({
@@ -25,6 +27,11 @@ export default makeSource({
 	disableImportAliasWarning: true,
 	documentTypes: [Post],
 	mdx: {
+		remarkPlugins: [
+			[remarkSmartypants, {
+				dashes: 'oldschool',
+			}],
+		],
 		rehypePlugins: [
 			rehypeSlug,
 			[rehypeAutolinkHeadings, {
