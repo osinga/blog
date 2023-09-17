@@ -9,7 +9,7 @@ const Page = () => (
 		<section className="prose">
 			<Paragraph variant="lead">Hello</Paragraph>
 			<Paragraph className="max-w-lg">
-				Product manager, software developer, and aspiring solopreneur.<br />
+				Product manager and software developer.
 				Open to a new challenge.
 				Reach out to me on{` `}
 				<Link href="mailto:contact@osinga.blog">contact@osinga.blog</Link>.
