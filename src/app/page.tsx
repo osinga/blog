@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 
-import { Heading, Link, Paragraph, Separator } from '@/components/ui'
+import { Heading, Link, Paragraph } from '@/components/ui'
 import { Post } from '@/components/app'
 import { allPosts } from '~/.contentlayer/generated'
 
@@ -25,7 +25,6 @@ const Page = () => (
 					</Heading>
 					<Paragraph>Language practice made easy.</Paragraph>
 				</a>
-				<Separator orientation="vertical" />
 			</div>
 		</section>
 
