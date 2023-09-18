@@ -21,7 +21,7 @@ const styles = {
 	prose: 'prose:mt-4 prose:first:mt-0',
 	variants: {
 		default: 'text-base/7',
-		lead: 'text-lg sm:text-xl md:text-2xl text-tertiary',
+		lead: 'text-lg sm:text-xl md:text-2xl text-tertiary dark:text-secondary',
 	},
 }
 

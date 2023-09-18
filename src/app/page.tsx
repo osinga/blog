@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 
-import { Heading, Link, Paragraph, Separator } from '@/components/ui'
+import { Heading, Link, Paragraph } from '@/components/ui'
 import { Post } from '@/components/app'
 import { allPosts } from '~/.contentlayer/generated'
 
@@ -9,7 +9,7 @@ const Page = () => (
 		<section className="prose">
 			<Paragraph variant="lead">Hello</Paragraph>
 			<Paragraph className="max-w-lg">
-				Product manager, software developer, and aspiring solopreneur.<br />
+				Product manager and software developer.
 				Open to a new challenge.
 				Reach out to me on{` `}
 				<Link href="mailto:contact@osinga.blog">contact@osinga.blog</Link>.
@@ -25,7 +25,6 @@ const Page = () => (
 					</Heading>
 					<Paragraph>Language practice made easy.</Paragraph>
 				</a>
-				<Separator orientation="vertical" />
 			</div>
 		</section>
 
