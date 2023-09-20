@@ -1,7 +1,9 @@
 import { forwardRef } from 'react'
 
 type HeadingRef = React.ComponentRef<keyof typeof styles.variants>
-type HeadingProps<Type extends React.ElementType = keyof typeof styles.variants> = React.ComponentProps<Type> & {
+type HeadingProps<
+	Type extends React.ElementType = keyof typeof styles.variants
+> = React.ComponentPropsWithoutRef<Type> & {
 	as?: keyof typeof styles.variants
 	variant: Type
 }
