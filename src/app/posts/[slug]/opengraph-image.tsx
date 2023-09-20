@@ -63,7 +63,7 @@ const Image = ({ params }: ImageProps) => {
 				}}>Osinga</span>
 			</div>
 		</div>
-	), { debug: false })
+	))
 }
 
 export const runtime = 'edge'
