@@ -51,7 +51,7 @@ const Image = ({ params }: ImageProps) => {
 					alt="Avatar"
 					height="48"
 					width="48"
-					src="http://localhost:3000/icon.png"
+					src="http://localhost:3000/icon.svg"
 				/>
 				<span style={{
 					margin: 0,
