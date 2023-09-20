@@ -51,7 +51,11 @@ const Image = ({ params }: ImageProps) => {
 					alt="Avatar"
 					height="48"
 					width="48"
-					src="http://localhost:3000/icon.svg"
+					src="http://localhost:3000/apple-icon.png"
+					style={{
+						border: '2px solid black',
+						borderRadius: '100%',
+					}}
 				/>
 				<span style={{
 					margin: 0,
