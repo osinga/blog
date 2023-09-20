@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 
 type CodeRef = React.ComponentRef<'code'>
-type CodeProps = React.ComponentProps<'code'>
+type CodeProps = React.ComponentPropsWithoutRef<'code'>
 
 const Code = forwardRef<CodeRef, CodeProps>(({
 	className = '',
