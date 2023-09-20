@@ -51,7 +51,7 @@ const Image = ({ params }: ImageProps) => {
 					alt="Avatar"
 					height="48"
 					width="48"
-					src="http://localhost:3000/apple-icon.png"
+					src="https://osinga.blog/apple-icon.png"
 					style={{
 						border: '2px solid black',
 						borderRadius: '100%',
