@@ -28,12 +28,18 @@ const Image = ({ params }: ImageProps) => {
 			<h1 style={{
 				margin: 0,
 				fontSize: 96,
+				// @ts-expect-error Not in the types yet, but available as per
+				// https://twitter.com/shuding_/status/1703868006143528972
+				textWrap: 'balance',
 			}}>{post.title}</h1>
 
 			<p style={{
 				margin: 0,
 				fontSize: 48,
 				color: colors.neutral[500],
+				// @ts-expect-error Not in the types yet, but available as per
+				// https://twitter.com/shuding_/status/1703868006143528972
+				textWrap: 'balance',
 			}}>{post.description}</p>
 
 			<hr style={{
@@ -51,7 +57,11 @@ const Image = ({ params }: ImageProps) => {
 					alt="Avatar"
 					height="48"
 					width="48"
-					src="http://localhost:3000/icon.png"
+					src="https://osinga.blog/apple-icon.png"
+					style={{
+						border: '2px solid black',
+						borderRadius: '100%',
+					}}
 				/>
 				<span style={{
 					margin: 0,
@@ -59,7 +69,7 @@ const Image = ({ params }: ImageProps) => {
 				}}>Osinga</span>
 			</div>
 		</div>
-	), { debug: false })
+	))
 }
 
 export const runtime = 'edge'
