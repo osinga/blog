@@ -13,7 +13,7 @@
 		"@radix-ui/react-separator": "^1.0.3",
 		"feed": "^4.2.2",
 		"lucide-react": "^0.279.0",
-		"next": "^13.5.1",
+		"next": "^13.5.2",
 		"next-contentlayer": "^0.3.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
