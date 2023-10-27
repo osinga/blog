@@ -1,5 +1,5 @@
 import colors from 'tailwindcss/colors'
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 
 import { allPosts } from '~/.contentlayer/generated'
 
