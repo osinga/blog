@@ -8,5 +8,20 @@ updates:
 
   - package-ecosystem: npm
     directory: /
+    groups:
+      next:
+        patterns:
+          - next
+          - eslint-config-next
+      radix:
+        patterns:
+          - "@radix-ui/*"
+      react:
+        patterns:
+          - react
+          - react-dom
+      types:
+        patterns:
+          - "@types/*"
     schedule:
       interval: daily
