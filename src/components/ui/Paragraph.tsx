@@ -11,7 +11,7 @@ const Paragraph = forwardRef<ParagraphRef, ParagraphProps>(({
 	...props
 }, ref) => (
 	<p
-		className={`${styles.prose} ${styles.variants[variant]} ${className}`}
+		className={`text-pretty ${styles.prose} ${styles.variants[variant]} ${className}`}
 		ref={ref}
 		{...props}
 	/>

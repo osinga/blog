@@ -15,7 +15,7 @@ const Header = ({
 		<Link className="group flex gap-4" href="/" variant="plain">
 			<Image
 				alt="Avatar"
-				className="h-12 w-12 transition group-hover:-rotate-12 group-hover:scale-105 group-hover:drop-shadow-md"
+				className="size-12 transition group-hover:-rotate-12 group-hover:scale-105 group-hover:drop-shadow-md"
 				src={icon}
 			/>
 
