@@ -15,7 +15,7 @@ const Heading = forwardRef<HeadingRef, HeadingProps>(({
 	...props
 }, ref) => (
 	<Component
-		className={`text-primary tracking-tight ${styles.prose} ${styles.variants[as || Component]} ${className}`}
+		className={`text-balance text-primary tracking-tight ${styles.prose} ${styles.variants[as || Component]} ${className}`}
 		ref={ref}
 		{...props}
 	/>

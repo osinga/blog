@@ -35,7 +35,7 @@
 	}
 
 	svg:where([viewBox="0 0 24 24"]) {
-		@apply shrink-0 h-[1em] w-[1em];
+		@apply shrink-0 size-[1em];
 	}
 
 	@media (prefers-color-scheme: dark) {
