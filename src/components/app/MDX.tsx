@@ -44,10 +44,20 @@ const MDX = ({
 				ul: (props: React.ComponentPropsWithoutRef<'ul'>) => <List variant="unordered" {...props} />,
 				blockquote: (props: React.ComponentPropsWithoutRef<'blockquote'>) => {
 					const child = Children.toArray(props.children).at(1) as React.ReactElement
-					const [type, ...content] = child.props.children
+					let variant
 
-					return ['Note', 'Warning'].includes(type.props?.children)
-						? <Callout variant={type.props.children.toLowerCase()}>{content}</Callout>
+					const content = Children.map(child.props.children, (child, index) => {
+						const regex = /^\[\!(NOTE|WARNING)\]/
+
+						const match = index === 0 && typeof child === 'string' && child.match(regex)
+						if (!match) return child
+
+						variant = match[1].toLowerCase()
+						return child.replace(regex, '')
+					})
+
+					return variant
+						? <Callout variant={variant}>{content}</Callout>
 						: <Blockquote {...child.props} />
 				},
 				img: (props: Required<Pick<React.ComponentPropsWithoutRef<'img'>, 'alt' | 'src'>>) => {
