@@ -1,6 +1,6 @@
 import type NextImage from 'next/image'
 import { forwardRef } from 'react'
-import { unstable_getImgProps as getImgProps } from 'next/image'
+import { getImageProps } from 'next/image'
 
 type ImageRef = React.ComponentRef<typeof NextImage>
 type ImageProps = React.ComponentPropsWithoutRef<typeof NextImage>
@@ -9,9 +9,9 @@ const Image = forwardRef<ImageRef, ImageProps>(({
 	className = '',
 	...props
 }, ref) => {
-	const { props: { srcSet: light, ...rest } } = getImgProps(props)
+	const { props: { srcSet: light, ...rest } } = getImageProps(props)
 	const { props: { srcSet: dark } } = typeof props.src === 'string' && props.src.includes('-light')
-		? getImgProps({ ...props, src: props.src.replace('-light', '-dark') })
+		? getImageProps({ ...props, src: props.src.replace('-light', '-dark') })
 		: { props: { srcSet: null } }
 
 	return (
