@@ -20,7 +20,7 @@
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-slug": "^6.0.0",
 		"remark-smartypants": "^2.1.0",
-		"shikiji": "^0.10.0"
+		"shikiji": "^0.10.1"
 	},
 	"devDependencies": {
 		"@types/node": "^20.11.7",
