@@ -28,6 +28,7 @@ export default makeSource({
 	documentTypes: [Post],
 	mdx: {
 		remarkPlugins: [
+			// @ts-expect-error
 			[remarkSmartypants, {
 				dashes: 'oldschool',
 			}],
