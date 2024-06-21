@@ -1,18 +1,12 @@
-'use client'
-
-import * as Primitive from '@radix-ui/react-dropdown-menu'
-
 import Content from './Content'
 import Item from './Item'
+import Root from './Root'
 import Separator from './Separator'
 import Trigger from './Trigger'
 
-const Root = Primitive.Root
-
-export {
+export default Object.assign(Root, {
 	Content,
 	Item,
-	Root,
 	Separator,
 	Trigger,
-}
+})
