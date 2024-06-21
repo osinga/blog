@@ -1,5 +1,3 @@
-'use client'
-
 import * as Primitive from '@radix-ui/react-separator'
 import { forwardRef } from 'react'
 

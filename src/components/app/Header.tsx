@@ -2,8 +2,7 @@ import NextLink from 'next/link'
 import { Braces, Rss } from 'lucide-react'
 
 import icon from '@/app/icon.svg'
-import { Image, Link, Strong } from '@/components/ui'
-import { Menu } from '@/components/ui/client'
+import { Image, Link, Menu, Strong } from '@/components/ui'
 
 type HeaderProps = Omit<React.ComponentPropsWithoutRef<'header'>, 'children'>
 
@@ -25,7 +24,7 @@ const Header = ({
 			</div>
 		</Link>
 
-		<Menu.Root>
+		<Menu modal={false}>
 			<Menu.Trigger aria-label="Feeds">
 				<Rss />
 			</Menu.Trigger>
@@ -41,7 +40,7 @@ const Header = ({
 					<NextLink href="/posts/feed.json"><Braces /> JSON</NextLink>
 				</Menu.Item>
 			</Menu.Content>
-		</Menu.Root>
+		</Menu>
 	</header>
 )
 

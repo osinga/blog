@@ -10,8 +10,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => (
 	<html className="scroll-smooth" lang="en">
-		{/* The `!important` for `.mx-auto` is needed for the menu positioning. */} 
-		<body className="grid gap-12 !mx-auto px-6 py-12 max-w-prose md:gap-24 md:pb-24">
+		<body className="grid gap-12 mx-auto px-6 py-12 max-w-prose md:gap-24 md:pb-24">
 			<Header />
 			{children}
 		</body>
