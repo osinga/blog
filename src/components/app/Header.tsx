@@ -24,7 +24,7 @@ const Header = ({
 			</div>
 		</Link>
 
-		<Menu>
+		<Menu modal={false}>
 			<Menu.Trigger aria-label="Feeds">
 				<Rss />
 			</Menu.Trigger>
