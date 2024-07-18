@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { Heading, Paragraph, Separator, Time } from '@/components/ui'
 import { MDX } from '@/components/app'
-import { allPosts } from '~/.contentlayer/generated'
+import { posts } from '~/.velite'
 
 type PageProps = {
 	params: {
@@ -12,7 +12,7 @@ type PageProps = {
 }
 
 const Page = ({ params }: PageProps) => {
-	const post = allPosts.find(post => post.slug === params.slug)
+	const post = posts.find(post => post.slug === params.slug)
 	if (!post) notFound()
 
 	return (
@@ -31,13 +31,13 @@ const Page = ({ params }: PageProps) => {
 				</span>
 			</header>
 
-			<MDX>{post.body.code}</MDX>
+			<MDX>{post.content}</MDX>
 		</main>
 	)
 }
 
 export const generateMetadata = ({ params }: PageProps): Metadata | undefined => {
-	const post = allPosts.find(post => post.slug === params.slug)
+	const post = posts.find(post => post.slug === params.slug)
 	if (!post) return
 
 	return {
@@ -55,6 +55,6 @@ export const generateMetadata = ({ params }: PageProps): Metadata | undefined =>
 }
 
 export const generateStaticParams = () =>
-	allPosts.map(post => ({ slug: post.slug }))
+	posts.map(post => ({ slug: post.slug }))
 
 export default Page

@@ -1,7 +1,7 @@
 import colors from 'tailwindcss/colors'
 import { ImageResponse } from 'next/og'
 
-import { allPosts } from '~/.contentlayer/generated'
+import { posts } from '~/.velite'
 
 type ImageProps = {
 	params: {
@@ -10,7 +10,7 @@ type ImageProps = {
 }
 
 const Image = ({ params }: ImageProps) => {
-	const post = allPosts.find(post => post.slug === params.slug)
+	const post = posts.find(post => post.slug === params.slug)
 	if (!post) return
 
 	return new ImageResponse((

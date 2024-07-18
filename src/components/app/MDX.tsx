@@ -1,6 +1,5 @@
+import * as runtime from 'react/jsx-runtime'
 import { Children, isValidElement } from 'react'
-// @ts-expect-error
-import { getMDXComponent } from 'next-contentlayer/hooks'
 import { readFileSync } from 'node:fs'
 
 import {
@@ -17,8 +16,13 @@ import {
 	Syntax,
 } from '@/components/ui'
 
+const useMDXComponent = (body: string) => {
+	const fn = new Function(body)
+	return fn({ ...runtime }).default
+}
+
 type MDXProps = Omit<React.ComponentPropsWithoutRef<'article'>, 'children'> & {
-	children: Parameters<typeof getMDXComponent>[0]
+	children: Parameters<typeof useMDXComponent>[0]
 }
 
 const MDX = ({
@@ -26,7 +30,7 @@ const MDX = ({
 	className = '',
 	...props
 }: MDXProps) => {
-	const Component = getMDXComponent(children)
+	const Component = useMDXComponent(children)
 
 	return (
 		<article className={`prose overflow-x-hidden ${className}`} {...props}>

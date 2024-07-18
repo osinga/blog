@@ -1,3 +1,11 @@
+// @ts-check
+
+if (!process.env.VELITE_STARTED) {
+	process.env.VELITE_STARTED = '1'
+	const { build } = await import('velite')
+	await build({ watch: process.argv.indexOf('dev') !== -1 })
+}
+
 /** @type {import('next').NextConfig} */
 const config = {
 	eslint: {
@@ -12,7 +20,7 @@ const config = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
-	headers() {
+	headers: async () => {
 		return [
 			{
 				source: '/:path*',
@@ -27,5 +35,4 @@ const config = {
 	},
 }
 
-const { withContentlayer } = require('next-contentlayer')
-module.exports = withContentlayer(config)
+export default config

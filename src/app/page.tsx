@@ -2,7 +2,7 @@ import { ArrowUpRight } from 'lucide-react'
 
 import { Heading, Link, Paragraph } from '@/components/ui'
 import { Post } from '@/components/app'
-import { allPosts } from '~/.contentlayer/generated'
+import { posts } from '~/.velite'
 
 const Page = () => (
 	<main className="grid gap-16 sm:gap-24">
@@ -30,7 +30,7 @@ const Page = () => (
 
 		<section className="grid gap-3 sm:gap-6">
 			<Heading variant="h2">Posts</Heading>
-			{allPosts
+			{posts
 				.filter(post => process.env.NODE_ENV === 'production' ? post.slug !== 'style-guide' : true)
 				.sort((a, b) => b.published.localeCompare(a.published))
 				.map(post => <Post key={post.slug} post={post} />)
