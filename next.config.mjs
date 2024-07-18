@@ -1,3 +1,7 @@
+// @ts-check
+
+import { withContentlayer } from 'next-contentlayer'
+
 /** @type {import('next').NextConfig} */
 const config = {
 	eslint: {
@@ -12,7 +16,7 @@ const config = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
-	headers() {
+	headers: async () => {
 		return [
 			{
 				source: '/:path*',
@@ -27,5 +31,4 @@ const config = {
 	},
 }
 
-const { withContentlayer } = require('next-contentlayer')
-module.exports = withContentlayer(config)
+export default withContentlayer(config)
