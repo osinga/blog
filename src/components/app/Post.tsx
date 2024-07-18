@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import type { Post as PostType } from '~/.contentlayer/generated'
+import type { Post as PostType } from '~/.velite'
 import { Heading, Paragraph, Time } from '@/components/ui'
 
 type PostProps = Omit<React.ComponentPropsWithoutRef<typeof Link>, 'children' | 'href'> & {

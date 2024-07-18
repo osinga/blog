@@ -1,14 +1,8 @@
-import * as runtime from 'react/jsx-runtime'
 import { Feed } from 'feed'
-import { Fragment, createElement } from 'react'
-// @ts-expect-error
-import { evaluateSync } from '@mdx-js/mdx'
 
-import { allPosts } from '~/.contentlayer/generated'
+import { posts } from '~/.velite'
 
-const feed = async (type: 'atom' | 'json' | 'rss') => {
-	const { renderToString } = await import('react-dom/server')
-
+const feed = (type: 'atom' | 'json' | 'rss') => {
 	const feed = new Feed({
 		id: 'https://osinga.blog',
 		title: 'Osinga',
@@ -27,18 +21,15 @@ const feed = async (type: 'atom' | 'json' | 'rss') => {
 		},
 	})
 
-	allPosts
+	posts
 		.filter(post => process.env.NODE_ENV === 'production' ? post.slug !== 'style-guide' : true)
 		.sort((a, b) => b.published.localeCompare(a.published))
 		.forEach(post => {
-			const map = evaluateSync(post.body.raw, { ...runtime, Fragment, development: false })
-			const content = renderToString(createElement(map.default))
-
 			feed.addItem({
 				id: `https://osinga.blog/posts/${post.slug}`,
 				title: post.title,
 				description: post.description,
-				content,
+				content: post.html,
 				author: [feed.options.author!],
 				date: new Date(post.published),
 				link: `https://osinga.blog/posts/${post.slug}`,

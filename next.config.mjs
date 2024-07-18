@@ -1,6 +1,10 @@
 // @ts-check
 
-import { withContentlayer } from 'next-contentlayer'
+if (!process.env.VELITE_STARTED) {
+	process.env.VELITE_STARTED = '1'
+	const { build } = await import('velite')
+	await build({ watch: process.argv.indexOf('dev') !== -1 })
+}
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -31,4 +35,4 @@ const config = {
 	},
 }
 
-export default withContentlayer(config)
+export default config
