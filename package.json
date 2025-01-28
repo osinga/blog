@@ -9,7 +9,7 @@
 		"types": "tsc"
 	},
 	"dependencies": {
-		"@radix-ui/react-dropdown-menu": "^2.1.4",
+		"@radix-ui/react-dropdown-menu": "^2.1.5",
 		"@radix-ui/react-separator": "^1.1.1",
 		"feed": "^4.2.2",
 		"lucide-react": "^0.469.0",
