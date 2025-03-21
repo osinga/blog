@@ -1,4 +1,4 @@
-import * as Primitive from '@radix-ui/react-dropdown-menu'
+import { DropdownMenu as Primitive } from 'radix-ui'
 
 import { Separator as UISeparator } from '@/components/ui'
 

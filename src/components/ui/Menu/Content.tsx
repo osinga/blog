@@ -1,4 +1,4 @@
-import * as Primitive from '@radix-ui/react-dropdown-menu'
+import { DropdownMenu as Primitive } from 'radix-ui'
 
 type ContentProps = React.ComponentProps<typeof Primitive.Content>
 

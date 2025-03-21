@@ -13,9 +13,6 @@ updates:
         patterns:
           - next
           - eslint-config-next
-      radix:
-        patterns:
-          - "@radix-ui/*"
       react:
         patterns:
           - react

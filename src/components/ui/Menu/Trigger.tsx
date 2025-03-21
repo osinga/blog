@@ -1,4 +1,4 @@
-import * as Primitive from '@radix-ui/react-dropdown-menu'
+import { DropdownMenu as Primitive } from 'radix-ui'
 
 import { Button } from '@/components/ui'
 
