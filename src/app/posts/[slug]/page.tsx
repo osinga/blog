@@ -6,13 +6,14 @@ import { MDX } from '@/components/app'
 import { posts } from '~/.velite'
 
 type PageProps = {
-	params: {
+	params: Promise<{
 		slug: string
-	}
+	}>
 }
 
-const Page = ({ params }: PageProps) => {
-	const post = posts.find(post => post.slug === params.slug)
+const Page = async ({ params }: PageProps) => {
+	const { slug } = await params
+	const post = posts.find(post => post.slug === slug)
 	if (!post) notFound()
 
 	return (
@@ -36,8 +37,9 @@ const Page = ({ params }: PageProps) => {
 	)
 }
 
-export const generateMetadata = ({ params }: PageProps): Metadata | undefined => {
-	const post = posts.find(post => post.slug === params.slug)
+export const generateMetadata = async ({ params }: PageProps): Promise<Metadata | undefined> => {
+	const { slug } = await params
+	const post = posts.find(post => post.slug === slug)
 	if (!post) return
 
 	return {
