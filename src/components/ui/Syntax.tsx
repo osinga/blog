@@ -13,7 +13,7 @@ const stripIndent = (string: string) => {
 	).trim()
 }
 
-type SyntaxProps = Omit<React.ComponentPropsWithoutRef<'div'>, 'children'> & {
+type SyntaxProps = Omit<React.ComponentProps<'div'>, 'children'> & {
 	children: string
 	lang: BuiltinLanguage
 	title?: string

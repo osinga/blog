@@ -1,13 +1,11 @@
 import * as Primitive from '@radix-ui/react-dropdown-menu'
-import { forwardRef } from 'react'
 
-type ItemRef = React.ComponentRef<typeof Primitive.Item>
-type ItemProps = React.ComponentPropsWithoutRef<typeof Primitive.Item>
+type ItemProps = React.ComponentProps<typeof Primitive.Item>
 
-const Item = forwardRef<ItemRef, ItemProps>(({
+const Item = ({
 	className = '',
 	...props
-}, ref) => (
+}: ItemProps) => (
 	<Primitive.Item
 		className={[
 			'flex items-center gap-2 px-2 h-7',
@@ -16,11 +14,8 @@ const Item = forwardRef<ItemRef, ItemProps>(({
 			'[&_svg]:text-base',
 			className,
 		].join(' ')}
-		ref={ref}
 		{...props}
 	/>
-))
-
-Item.displayName = 'Item'
+)
 
 export default Item

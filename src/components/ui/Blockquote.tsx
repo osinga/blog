@@ -1,12 +1,9 @@
-import { forwardRef } from 'react'
+type BlockquoteProps = React.ComponentProps<'blockquote'>
 
-type BlockquoteRef = React.ComponentRef<'blockquote'>
-type BlockquoteProps = React.ComponentPropsWithoutRef<'blockquote'>
-
-const Blockquote = forwardRef<BlockquoteRef, BlockquoteProps>(({
+const Blockquote = ({
 	className = '',
 	...props
-}, ref) => (
+}: BlockquoteProps) => (
 	<blockquote
 		className={[
 			'pl-4 border-l-4 font-medium italic text-primary sm:pl-6 sm:text-lg',
@@ -15,11 +12,8 @@ const Blockquote = forwardRef<BlockquoteRef, BlockquoteProps>(({
 			'prose:my-6 sm:prose:my-8',
 			className,
 		].join(' ')}
-		ref={ref}
 		{...props}
 	/>
-))
-
-Blockquote.displayName = 'Blockquote'
+)
 
 export default Blockquote

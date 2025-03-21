@@ -1,25 +1,21 @@
-import { forwardRef } from 'react'
-
-type HeadingRef = React.ComponentRef<keyof typeof styles.variants>
 type HeadingProps<
 	Type extends React.ElementType = keyof typeof styles.variants
-> = React.ComponentPropsWithoutRef<Type> & {
+> = React.ComponentProps<Type> & {
 	as?: keyof typeof styles.variants
 	variant: Type
 }
 
-const Heading = forwardRef<HeadingRef, HeadingProps>(({
+const Heading = ({
 	as,
 	className = '',
 	variant: Component,
 	...props
-}, ref) => (
+}: HeadingProps) => (
 	<Component
 		className={`text-balance text-primary tracking-tight ${styles.prose} ${styles.variants[as || Component]} ${className}`}
-		ref={ref}
 		{...props}
 	/>
-))
+)
 
 const styles = {
 	prose: 'prose:mt-[1em] prose:-mb-[0.2em] prose:first:mt-0',
@@ -30,7 +26,5 @@ const styles = {
 		h4: 'font-semibold text-base sm:text-lg md:text-xl',
 	},
 }
-
-Heading.displayName = 'Heading'
 
 export default Heading

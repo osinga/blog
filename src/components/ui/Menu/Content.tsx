@@ -1,13 +1,11 @@
 import * as Primitive from '@radix-ui/react-dropdown-menu'
-import { forwardRef } from 'react'
 
-type ContentRef = React.ComponentRef<typeof Primitive.Content>
-type ContentProps = React.ComponentPropsWithoutRef<typeof Primitive.Content>
+type ContentProps = React.ComponentProps<typeof Primitive.Content>
 
-const Content = forwardRef<ContentRef, ContentProps>(({
+const Content = ({
 	className = '',
 	...props
-}, ref) => (
+}: ContentProps) => (
 	<Primitive.Portal>
 		<Primitive.Content
 			align="start"
@@ -19,13 +17,10 @@ const Content = forwardRef<ContentRef, ContentProps>(({
 				className,
 			].join(' ')}
 			loop
-			ref={ref}
 			sideOffset={4}
 			{...props}
 		/>
 	</Primitive.Portal>
-))
-
-Content.displayName = 'Content'
+)
 
 export default Content

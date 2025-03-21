@@ -1,23 +1,19 @@
 import * as Primitive from '@radix-ui/react-dropdown-menu'
-import { forwardRef } from 'react'
 
 import { Button } from '@/components/ui'
 
-type TriggerRef = React.ComponentRef<typeof Primitive.Trigger>
-type TriggerProps = Omit<React.ComponentPropsWithoutRef<typeof Primitive.Trigger>, 'asChild'>
-	& React.ComponentPropsWithoutRef<typeof Button>
+type TriggerProps = Omit<React.ComponentProps<typeof Primitive.Trigger>, 'asChild'>
+	& React.ComponentProps<typeof Button>
 
-const Trigger = forwardRef<TriggerRef, TriggerProps>(({
+const Trigger = ({
 	children,
 	...props
-}, ref) => (
-	<Primitive.Trigger asChild ref={ref} {...props}>
+}: TriggerProps) => (
+	<Primitive.Trigger asChild {...props}>
 		<Button>
 			{children}
 		</Button>
 	</Primitive.Trigger>
-))
-
-Trigger.displayName = 'Trigger'
+)
 
 export default Trigger

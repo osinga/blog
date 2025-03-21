@@ -1,18 +1,16 @@
 import NextLink from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import { forwardRef } from 'react'
 
-type LinkRef = React.ComponentRef<typeof NextLink>
-type LinkProps = React.ComponentPropsWithoutRef<typeof NextLink> & {
+type LinkProps = React.ComponentProps<typeof NextLink> & {
 	variant?: keyof typeof styles.variants
 }
 
-const Link = forwardRef<LinkRef, LinkProps>(({
+const Link = ({
 	children,
 	className = '',
 	variant = 'accent',
 	...props
-}, ref) => {
+}: LinkProps) => {
 	const isExternal = props.href.toString().startsWith('https://')
 
 	return (
@@ -22,14 +20,13 @@ const Link = forwardRef<LinkRef, LinkProps>(({
 				styles.variants[variant],
 				className,
 			].join(' ')}
-			ref={ref}
 			{...props}
 		>
 			{children}
 			{isExternal && <ArrowUpRight className="text-sm" />}
 		</NextLink>
 	)
-})
+}
 
 const styles = {
 	variants: {
@@ -37,7 +34,5 @@ const styles = {
 		plain: 'hover:text-accent',
 	},
 }
-
-Link.displayName = 'Link'
 
 export default Link
