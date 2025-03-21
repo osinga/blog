@@ -4,13 +4,15 @@ import { ImageResponse } from 'next/og'
 import { posts } from '~/.velite'
 
 type ImageProps = {
-	params: {
+	params: Promise<{
 		slug: string
-	}
+	}>
 }
 
-const Image = ({ params }: ImageProps) => {
-	const post = posts.find(post => post.slug === params.slug)
+const Image = async ({ params }: ImageProps) => {
+	const { slug } = await params
+	const post = posts.find(post => post.slug === slug)
+
 	if (!post) return
 
 	return new ImageResponse((
