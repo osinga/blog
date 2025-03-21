@@ -14,6 +14,7 @@ type PageProps = {
 const Page = async ({ params }: PageProps) => {
 	const { slug } = await params
 	const post = posts.find(post => post.slug === slug)
+
 	if (!post) notFound()
 
 	return (
@@ -40,6 +41,7 @@ const Page = async ({ params }: PageProps) => {
 export const generateMetadata = async ({ params }: PageProps): Promise<Metadata | undefined> => {
 	const { slug } = await params
 	const post = posts.find(post => post.slug === slug)
+
 	if (!post) return
 
 	return {

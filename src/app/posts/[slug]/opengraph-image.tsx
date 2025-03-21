@@ -12,6 +12,7 @@ type ImageProps = {
 const Image = async ({ params }: ImageProps) => {
 	const { slug } = await params
 	const post = posts.find(post => post.slug === slug)
+
 	if (!post) return
 
 	return new ImageResponse((
