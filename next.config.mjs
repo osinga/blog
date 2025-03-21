@@ -1,14 +1,13 @@
-import type { NextConfig } from 'next'
+// @ts-check
 
 if (!process.env.VELITE_STARTED) {
 	process.env.VELITE_STARTED = '1'
-
-	import('velite').then(({ build }) => build({
-		watch: process.argv.indexOf('dev') !== -1,
-	}))
+	const { build } = await import('velite')
+	await build({ watch: process.argv.indexOf('dev') !== -1 })
 }
 
-const config: NextConfig = {
+/** @type {import('next').NextConfig} */
+const config = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
