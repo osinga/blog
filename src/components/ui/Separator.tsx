@@ -1,4 +1,4 @@
-import * as Primitive from '@radix-ui/react-separator'
+import { Separator as Primitive } from 'radix-ui'
 
 type SeparatorProps = React.ComponentProps<typeof Primitive.Root>
 
