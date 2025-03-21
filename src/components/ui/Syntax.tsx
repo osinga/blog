@@ -1,4 +1,3 @@
-// @ts-expect-error
 import { codeToHtml, type BuiltinLanguage } from 'shikiji'
 
 // Source: https://github.com/sindresorhus/strip-indent
