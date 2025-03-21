@@ -50,7 +50,7 @@ const MDX = ({
 					const child = Children.toArray(props.children).at(1) as React.ReactElement
 					let variant
 
-					const content = Children.map(child.props.children, (child, index) => {
+					const content = Children.map((child as any).props.children, (child, index) => {
 						const regex = /^\[\!(NOTE|WARNING)\]/
 
 						const match = index === 0 && typeof child === 'string' && child.match(regex)
@@ -62,7 +62,7 @@ const MDX = ({
 
 					return variant
 						? <Callout variant={variant}>{content}</Callout>
-						: <Blockquote {...child.props} />
+						: <Blockquote {...(child as any).props} />
 				},
 				img: (props: Required<Pick<React.ComponentPropsWithoutRef<'img'>, 'alt' | 'src'>>) => {
 					const image = readFileSync(`${process.cwd()}/public${props.src}`)
@@ -78,8 +78,8 @@ const MDX = ({
 					)
 				},
 				pre: (props: React.ComponentPropsWithoutRef<'pre'>) => isValidElement(props.children) ? (
-					<Syntax lang={props.children.props.className.split('-').at(1)}>
-						{props.children.props.children}
+					<Syntax lang={(props.children.props as any).className.split('-').at(1)}>
+						{(props.children.props as any).children}
 					</Syntax>
 				) : null,
 			}} />
