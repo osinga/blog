@@ -1,17 +1,14 @@
-import { forwardRef } from 'react'
-
 import Item from './Item'
 
-type ListRef = React.ComponentRef<'ol' | 'ul'>
 type ListProps = React.ComponentPropsWithoutRef<'ol' | 'ul'> & {
 	variant: keyof typeof styles.variants
 }
 
-const List = forwardRef<ListRef, ListProps>(({
+const List = ({
 	className = '',
 	variant,
 	...props
-}, ref) => {
+}: ListProps) => {
 	const Component = ({
 		ordered: 'ol',
 		unordered: 'ul',
@@ -20,11 +17,10 @@ const List = forwardRef<ListRef, ListProps>(({
 	return (
 		<Component
 			className={`${styles.prose} ${styles.variants[variant]} ${className}`}
-			ref={ref as React.ForwardedRef<HTMLOListElement>}
 			{...props}
 		/>
 	)
-})
+}
 
 const styles = {
 	prose: 'prose:my-4 prose:pl-8 prose:[li_&]:my-2',
@@ -33,8 +29,6 @@ const styles = {
 		unordered: 'list-disc',
 	},
 }
-
-List.displayName = 'List'
 
 export default Object.assign(List, {
 	Item,

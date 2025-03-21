@@ -4,7 +4,7 @@ import { Braces, Rss } from 'lucide-react'
 import icon from '@/app/icon.svg'
 import { Image, Link, Menu, Strong } from '@/components/ui'
 
-type HeaderProps = Omit<React.ComponentPropsWithoutRef<'header'>, 'children'>
+type HeaderProps = Omit<React.ComponentProps<'header'>, 'children'>
 
 const Header = ({
 	className = '',

@@ -1,19 +1,17 @@
 import { AlertTriangle, Info } from 'lucide-react'
-import { forwardRef } from 'react'
 
 import Strong from './Strong'
 
-type CalloutRef = React.ComponentRef<'div'>
-type CalloutProps = React.ComponentPropsWithoutRef<'div'> & {
+type CalloutProps = React.ComponentProps<'div'> & {
 	variant?: keyof typeof styles.variants
 }
 
-const Callout = forwardRef<CalloutRef, CalloutProps>(({
+const Callout = ({
 	children,
 	className = '',
 	variant = 'note',
 	...props
-}, ref) => {
+}: CalloutProps) => {
 	const Icon = {
 		note: Info,
 		warning: AlertTriangle,
@@ -27,7 +25,6 @@ const Callout = forwardRef<CalloutRef, CalloutProps>(({
 				styles.variants[variant],
 				className,
 			].join(' ')}
-			ref={ref}
 			{...props}
 		>
 			<Strong className="capitalize !text-inherit">{variant}:</Strong>
@@ -35,7 +32,7 @@ const Callout = forwardRef<CalloutRef, CalloutProps>(({
 			{children}
 		</div>
 	)
-})
+}
 
 const styles = {
 	variants: {
@@ -43,7 +40,5 @@ const styles = {
 		warning: 'bg-amber-50 border-amber-500 text-amber-500 dark:border-amber-400 dark:text-amber-400 dark:bg-amber-950',
 	},
 }
-
-Callout.displayName = 'Callout'
 
 export default Callout

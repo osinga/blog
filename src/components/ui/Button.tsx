@@ -1,20 +1,17 @@
 import NextLink from 'next/link'
-import { forwardRef } from 'react'
 
-type ButtonRef = React.ComponentRef<'button'>
-type ButtonProps = React.ComponentPropsWithoutRef<'button'>
-const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) =>
-	<button ref={ref} {...props} />)
+type ButtonProps = React.ComponentProps<'button'>
+const Button = (props: ButtonProps) =>
+	<button {...props} />
 
-type LinkRef = React.ComponentRef<typeof NextLink>
-type LinkProps = React.ComponentPropsWithoutRef<typeof NextLink>
-const Link = forwardRef<LinkRef, LinkProps>((props, ref) =>
-	<NextLink ref={ref} {...props} />)
+type LinkProps = React.ComponentProps<typeof NextLink>
+const Link = (props: LinkProps) =>
+	<NextLink {...props} />
 
-const Combined = forwardRef<ButtonRef | LinkRef, ButtonProps | LinkProps>(({
+const Combined = ({
 	className = '',
 	...props
-}, ref) => {
+}: ButtonProps | LinkProps) => {
 	const Component: React.ElementType = 'href' in props
 		? Link
 		: Button
@@ -29,14 +26,9 @@ const Combined = forwardRef<ButtonRef | LinkRef, ButtonProps | LinkProps>(({
 					: 'enabled:hover:bg-gray-100 dark:enabled:hover:bg-gray-900',
 				className,
 			].join(' ')}
-			ref={ref}
 			{...props}
 		/>
 	)
-})
-
-Combined.displayName = 'Button'
-Button.displayName = 'Button'
-Link.displayName = 'Button'
+}
 
 export default Combined

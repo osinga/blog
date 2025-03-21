@@ -21,7 +21,7 @@ const useMDXComponent = (body: string) => {
 	return fn({ ...runtime }).default
 }
 
-type MDXProps = Omit<React.ComponentPropsWithoutRef<'article'>, 'children'> & {
+type MDXProps = Omit<React.ComponentProps<'article'>, 'children'> & {
 	children: Parameters<typeof useMDXComponent>[0]
 }
 
@@ -41,16 +41,16 @@ const MDX = ({
 				li: List.Item,
 				p: Paragraph,
 				strong: Strong,
-				h2: (props: React.ComponentPropsWithoutRef<'h2'>) => <Heading variant="h2" {...props} />,
-				h3: (props: React.ComponentPropsWithoutRef<'h3'>) => <Heading variant="h3" {...props} />,
-				h4: (props: React.ComponentPropsWithoutRef<'h4'>) => <Heading variant="h4" {...props} />,
-				ol: (props: React.ComponentPropsWithoutRef<'ol'>) => <List variant="ordered" {...props} />,
-				ul: (props: React.ComponentPropsWithoutRef<'ul'>) => <List variant="unordered" {...props} />,
-				blockquote: (props: React.ComponentPropsWithoutRef<'blockquote'>) => {
+				h2: (props: React.ComponentProps<'h2'>) => <Heading variant="h2" {...props} />,
+				h3: (props: React.ComponentProps<'h3'>) => <Heading variant="h3" {...props} />,
+				h4: (props: React.ComponentProps<'h4'>) => <Heading variant="h4" {...props} />,
+				ol: (props: React.ComponentProps<'ol'>) => <List variant="ordered" {...props} />,
+				ul: (props: React.ComponentProps<'ul'>) => <List variant="unordered" {...props} />,
+				blockquote: (props: React.ComponentProps<'blockquote'>) => {
 					const child = Children.toArray(props.children).at(1) as React.ReactElement
 					let variant
 
-					const content = Children.map(child.props.children, (child, index) => {
+					const content = Children.map((child as any).props.children, (child, index) => {
 						const regex = /^\[\!(NOTE|WARNING)\]/
 
 						const match = index === 0 && typeof child === 'string' && child.match(regex)
@@ -62,9 +62,9 @@ const MDX = ({
 
 					return variant
 						? <Callout variant={variant}>{content}</Callout>
-						: <Blockquote {...child.props} />
+						: <Blockquote {...(child as any).props} />
 				},
-				img: (props: Required<Pick<React.ComponentPropsWithoutRef<'img'>, 'alt' | 'src'>>) => {
+				img: (props: Required<Pick<React.ComponentProps<'img'>, 'alt' | 'src'>>) => {
 					const image = readFileSync(`${process.cwd()}/public${props.src}`)
 
 					return (
@@ -77,9 +77,9 @@ const MDX = ({
 						/>
 					)
 				},
-				pre: (props: React.ComponentPropsWithoutRef<'pre'>) => isValidElement(props.children) ? (
-					<Syntax lang={props.children.props.className.split('-').at(1)}>
-						{props.children.props.children}
+				pre: (props: React.ComponentProps<'pre'>) => isValidElement(props.children) ? (
+					<Syntax lang={(props.children.props as any).className.split('-').at(1)}>
+						{(props.children.props as any).children}
 					</Syntax>
 				) : null,
 			}} />

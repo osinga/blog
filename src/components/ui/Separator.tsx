@@ -1,15 +1,13 @@
 import * as Primitive from '@radix-ui/react-separator'
-import { forwardRef } from 'react'
 
-type SeparatorRef = React.ComponentRef<typeof Primitive.Root>
-type SeparatorProps = React.ComponentPropsWithoutRef<typeof Primitive.Root>
+type SeparatorProps = React.ComponentProps<typeof Primitive.Root>
 
-const Separator = forwardRef<SeparatorRef, SeparatorProps>(({
+const Separator = ({
 	className = '',
 	decorative = true,
 	orientation = 'horizontal',
 	...props
-}, ref) => (
+}: SeparatorProps) => (
 	<Primitive.Root
 		className={[
 			'bg-border rounded-full',
@@ -19,10 +17,9 @@ const Separator = forwardRef<SeparatorRef, SeparatorProps>(({
 		].join(' ')}
 		decorative={decorative}
 		orientation={orientation}
-		ref={ref}
 		{...props}
 	/>
-))
+)
 
 const styles = {
 	prose: 'prose:my-8 prose:sm:my-14',
@@ -31,7 +28,5 @@ const styles = {
 		vertical: 'h-full w-px',
 	},
 }
-
-Separator.displayName = 'Separator'
 
 export default Separator

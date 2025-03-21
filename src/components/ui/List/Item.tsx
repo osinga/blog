@@ -1,19 +1,13 @@
-import { forwardRef } from 'react'
+type ItemProps = React.ComponentProps<'li'>
 
-type ItemRef = React.ComponentRef<'li'>
-type ItemProps = React.ComponentPropsWithoutRef<'li'>
-
-const Item = forwardRef<ItemRef, ItemProps>(({
+const Item = ({
 	className = '',
 	...props
-}, ref) => (
+}: ItemProps) => (
 	<li
 		className={`my-2 ${className}`}
-		ref={ref}
 		{...props}
 	/>
-))
-
-Item.displayName = 'Item'
+)
 
 export default Item

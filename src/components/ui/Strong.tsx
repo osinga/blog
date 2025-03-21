@@ -1,19 +1,13 @@
-import { forwardRef } from 'react'
+type StrongProps = React.ComponentProps<'strong'>
 
-type StrongRef = React.ComponentRef<'strong'>
-type StrongProps = React.ComponentPropsWithoutRef<'strong'>
-
-const Strong = forwardRef<StrongRef, StrongProps>(({
+const Strong = ({
 	className = '',
 	...props
-}, ref) => (
+}: StrongProps) => (
 	<strong
 		className={`text-primary ${className}`}
-		ref={ref}
 		{...props}
 	/>
-))
-
-Strong.displayName = 'Strong'
+)
 
 export default Strong
