@@ -1,6 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.ts';
+
+@theme {
+	--animate-scale-and-fade-in: scale-and-fade-in 150ms cubic-bezier(.25, .75, .6, .98);
+	--animate-scale-and-fade-out: scale-and-fade-out 75ms ease-out;
+
+	@keyframes scale-and-fade-in {
+		from { opacity: 0; transform: scale(.95); }
+		to { opacity: 1; transform: scale(1); }
+	}
+
+	@keyframes scale-and-fade-out {
+		from { opacity: 1; transform: scale(1); }
+		to { opacity: 0; transform: scale(.95); }
+	}
+}
 
 @layer base {
 	:root {
@@ -47,17 +62,5 @@
 			--color-background:    0  0%   4%; /* neutral.950 */
 			--color-border:        0  0%  15%; /* neutral.800 */
 		}
-	}
-}
-
-@layer utilities {
-	@keyframes scale-and-fade-in {
-		from { opacity: 0; transform: scale(.95); }
-		to { opacity: 1; transform: scale(1); }
-	}
-
-	@keyframes scale-and-fade-out {
-		from { opacity: 1; transform: scale(1); }
-		to { opacity: 0; transform: scale(.95); }
 	}
 }

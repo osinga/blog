@@ -15,10 +15,6 @@ const config = {
 	],
 	theme: {
 		extend: {
-			animation: {
-				scaleAndFadeIn: 'scale-and-fade-in 150ms cubic-bezier(.25, .75, .6, .98)',
-				scaleAndFadeOut: 'scale-and-fade-out 75ms ease-out',
-			},
 			colors: ({ colors }) => ({
 				gray: colors.neutral,
 				accent: 'hsl(var(--color-accent))',
