@@ -44,7 +44,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-		@apply border-border;
+		@apply border-border outline-accent;
 	}
 
 	::selection {
@@ -52,7 +52,7 @@
 	}
 
 	:focus-visible {
-		@apply outline-2 outline-accent outline-offset-2;
+		@apply outline-2 outline-offset-2;
 	}
 
 	body {
