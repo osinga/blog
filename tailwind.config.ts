@@ -7,13 +7,6 @@ const config = {
 			addVariant('prose', '.prose &')
 		}),
 	],
-	theme: {
-		extend: {
-			colors: ({ colors }) => ({
-				gray: colors.neutral,
-			}),
-		},
-	},
 } satisfies Config
 
 export default config
