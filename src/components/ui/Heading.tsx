@@ -12,7 +12,12 @@ const Heading = ({
 	...props
 }: HeadingProps) => (
 	<Component
-		className={`text-balance text-primary tracking-tight ${styles.prose} ${styles.variants[as || Component]} ${className}`}
+		className={[
+			'text-balance text-primary tracking-tight',
+			styles.prose,
+			styles.variants[as || Component],
+			className,
+		].join(' ')}
 		{...props}
 	/>
 )

@@ -14,12 +14,6 @@ const config = {
 		extend: {
 			colors: ({ colors }) => ({
 				gray: colors.neutral,
-				accent: 'hsl(var(--color-accent))',
-				primary: 'hsl(var(--color-primary))',
-				secondary: 'hsl(var(--color-secondary))',
-				tertiary: 'hsl(var(--color-tertiary))',
-				background: 'hsl(var(--color-background))',
-				border: 'hsl(var(--color-border))',
 			}),
 		},
 	},
