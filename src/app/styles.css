@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-@config '../../tailwind.config.ts';
-
 @theme {
 	--color-gray-50: oklch(0.985 0 0);
 	--color-gray-100: oklch(0.97 0 0);
@@ -76,5 +74,11 @@
 			--color-background: hsl(0 0% 4%); 	/* neutral.950 */
 			--color-border: hsl(0 0% 15%); 			/* neutral.800 */
 		}
+	}
+}
+
+@custom-variant prose {
+	.prose & {
+		@slot;
 	}
 }
