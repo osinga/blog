@@ -22,7 +22,7 @@ const Page = async ({ params }: PageProps) => {
 			<header>
 				<Heading variant="h1">{post.title}</Heading>
 				<Paragraph className="mt-2" variant="lead">{post.description}</Paragraph>
-				<Separator className="my-2 !h-0.5 !w-1/3 !bg-accent" />
+				<Separator className="my-2 h-0.5! w-1/3! bg-accent!" />
 				<span className="flex items-baseline gap-2 text-sm">
 					<Time value={post.published} />
 					{post.modified && (

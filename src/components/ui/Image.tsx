@@ -19,7 +19,7 @@ const Image = ({
 
 			{/* eslint-disable-next-line jsx-a11y/alt-text */}
 			<img
-				className={`prose:my-6 [li_&]:!my-3 sm:prose:my-10 ${className}`}
+				className={`prose:my-6 in-[li]:my-3! sm:prose:my-10 ${className}`}
 				{...rest}
 			/>
 		</picture>

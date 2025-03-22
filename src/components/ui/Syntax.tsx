@@ -36,7 +36,7 @@ const Syntax = async ({
 
 	return (
 		<div
-			className={`w-full border rounded-lg text-xs prose:my-7 prose:[li_&]:my-4 ${className}`}
+			className={`w-full border rounded-lg text-xs prose:my-7 in-[li]:prose:my-4 ${className}`}
 			{...props}
 		>
 			{title && (
@@ -48,7 +48,7 @@ const Syntax = async ({
 				className={[
 					'py-4 overflow-x-auto [tab-size:2]',
 					'[&_pre]:[--shiki-dark-bg:transparent_!important]',
-					'dark:[&_.shiki]:!bg-[--shiki-dark-bg] dark:[&_.shiki_span]:!text-[--shiki-dark]',
+					'dark:[&_.shiki]:bg-(--shiki-dark-bg)! dark:[&_.shiki_span]:text-(--shiki-dark)!',
 					...(lang === 'bash' ? [
 						'[&_.line]:px-4',
 					] : [

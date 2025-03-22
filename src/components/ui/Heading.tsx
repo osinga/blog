@@ -18,7 +18,7 @@ const Heading = ({
 )
 
 const styles = {
-	prose: 'prose:mt-[1em] prose:-mb-[0.2em] prose:first:mt-0',
+	prose: 'prose:mt-[1em] prose:-mb-[0.2em] first:prose:mt-0',
 	variants: {
 		h1: 'font-bold text-2xl sm:text-4xl md:text-5xl',
 		h2: 'font-semibold text-xl sm:text-3xl md:text-4xl',
