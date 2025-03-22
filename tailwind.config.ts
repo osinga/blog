@@ -5,9 +5,6 @@ const config = {
 	content: [
 		'./src/**/*.tsx',
 	],
-	future: {
-		hoverOnlyWhenSupported: true,
-	},
 	plugins: [
 		plugin(({ addVariant }) => {
 			addVariant('prose', '.prose &')
