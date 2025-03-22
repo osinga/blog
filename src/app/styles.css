@@ -1,24 +1,24 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-gray-50: oklch(0.985 0 0);
-	--color-gray-100: oklch(0.97 0 0);
-	--color-gray-200: oklch(0.922 0 0);
-	--color-gray-300: oklch(0.87 0 0);
-	--color-gray-400: oklch(0.708 0 0);
-	--color-gray-500: oklch(0.556 0 0);
-	--color-gray-600: oklch(0.439 0 0);
-	--color-gray-700: oklch(0.371 0 0);
-	--color-gray-800: oklch(0.269 0 0);
-	--color-gray-900: oklch(0.205 0 0);
-	--color-gray-950: oklch(0.145 0 0);
+	--color-gray-50: var(--color-neutral-50);
+	--color-gray-100: var(--color-neutral-100);
+	--color-gray-200: var(--color-neutral-200);
+	--color-gray-300: var(--color-neutral-300);
+	--color-gray-400: var(--color-neutral-400);
+	--color-gray-500: var(--color-neutral-500);
+	--color-gray-600: var(--color-neutral-600);
+	--color-gray-700: var(--color-neutral-700);
+	--color-gray-800: var(--color-neutral-800);
+	--color-gray-900: var(--color-neutral-900);
+	--color-gray-950: var(--color-neutral-950);
 
-	--color-accent: hsl(349 89%  60%); 		/* rose.500 */
-	--color-primary: hsl(0 0% 4%); 				/* neutral.950 */
-	--color-secondary: hsl(0 0% 25%); 		/* neutral.700 */
-	--color-tertiary: hsl(0 0% 45%); 			/* neutral.500 */
-	--color-background: hsl(0 0% 100%); 	/* white */
-	--color-border: hsl(0 0% 90%); 				/* neutral.200 */
+	--color-accent: var(--color-rose-500);
+	--color-primary: var(--color-neutral-950);
+	--color-secondary: var(--color-neutral-700);
+	--color-tertiary: var(--color-neutral-500);
+	--color-background: var(--color-white);
+	--color-border: var(--color-neutral-200);
 
 	--animate-scale-and-fade-in: scale-and-fade-in 150ms cubic-bezier(.25, .75, .6, .98);
 	--animate-scale-and-fade-out: scale-and-fade-out 75ms ease-out;
@@ -67,12 +67,12 @@
 
 	@media (prefers-color-scheme: dark) {
 		:root {
-			--color-accent: hsl(351 95% 71%); 	/* rose.400 */
-			--color-primary: hsl(0 0% 100%); 		/* white */
-			--color-secondary: hsl(0 0% 83%); 	/* neutral.300 */
-			--color-tertiary: hsl(0 0% 45%); 		/* neutral.500 */
-			--color-background: hsl(0 0% 4%); 	/* neutral.950 */
-			--color-border: hsl(0 0% 15%); 			/* neutral.800 */
+			--color-accent: var(--color-rose-400);
+			--color-primary: var(--color-white);
+			--color-secondary: var(--color-neutral-300);
+			--color-tertiary: var(--color-neutral-500);
+			--color-background: var(--color-neutral-950);
+			--color-border: var(--color-neutral-800);
 		}
 	}
 }
