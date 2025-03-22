@@ -27,7 +27,7 @@ const Callout = ({
 			].join(' ')}
 			{...props}
 		>
-			<Strong className="capitalize !text-inherit">{variant}:</Strong>
+			<Strong className="capitalize text-inherit!">{variant}:</Strong>
 			<Icon className="absolute left-3 top-2.5 text-base" />
 			{children}
 		</div>

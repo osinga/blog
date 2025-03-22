@@ -1,23 +1,50 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+	--color-gray-50: var(--color-neutral-50);
+	--color-gray-100: var(--color-neutral-100);
+	--color-gray-200: var(--color-neutral-200);
+	--color-gray-300: var(--color-neutral-300);
+	--color-gray-400: var(--color-neutral-400);
+	--color-gray-500: var(--color-neutral-500);
+	--color-gray-600: var(--color-neutral-600);
+	--color-gray-700: var(--color-neutral-700);
+	--color-gray-800: var(--color-neutral-800);
+	--color-gray-900: var(--color-neutral-900);
+	--color-gray-950: var(--color-neutral-950);
+
+	--color-accent: var(--color-rose-500);
+	--color-primary: var(--color-neutral-950);
+	--color-secondary: var(--color-neutral-700);
+	--color-tertiary: var(--color-neutral-500);
+	--color-background: var(--color-white);
+	--color-border: var(--color-neutral-200);
+
+	--animate-scale-and-fade-in: scale-and-fade-in 150ms cubic-bezier(.25, .75, .6, .98);
+	--animate-scale-and-fade-out: scale-and-fade-out 75ms ease-out;
+
+	@keyframes scale-and-fade-in {
+		from { opacity: 0; transform: scale(.95); }
+		to { opacity: 1; transform: scale(1); }
+	}
+
+	@keyframes scale-and-fade-out {
+		from { opacity: 1; transform: scale(1); }
+		to { opacity: 0; transform: scale(.95); }
+	}
+}
 
 @layer base {
 	:root {
 		color-scheme: light dark;
-
-		--color-accent:      349 89%  60%; /* rose.500 */
-		--color-primary:       0  0%   4%; /* neutral.950 */
-		--color-secondary:     0  0%  25%; /* neutral.700 */
-		--color-tertiary:      0  0%  45%; /* neutral.500 */
-		--color-background:    0  0% 100%; /* white */
-		--color-border:        0  0%  90%; /* neutral.200 */
 	}
 
-	*,
-	::before,
-	::after {
-		@apply border-border;
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+		@apply border-border outline-accent;
 	}
 
 	::selection {
@@ -25,7 +52,7 @@
 	}
 
 	:focus-visible {
-		@apply outline-2 outline-accent outline-offset-2;
+		@apply outline-2 outline-offset-2;
 	}
 
 	body {
@@ -40,24 +67,18 @@
 
 	@media (prefers-color-scheme: dark) {
 		:root {
-			--color-accent:      351 95%  71%; /* rose.400 */
-			--color-primary:       0  0% 100%; /* white */
-			--color-secondary:     0  0%  83%; /* neutral.300 */
-			--color-tertiary:      0  0%  45%; /* neutral.500 */
-			--color-background:    0  0%   4%; /* neutral.950 */
-			--color-border:        0  0%  15%; /* neutral.800 */
+			--color-accent: var(--color-rose-400);
+			--color-primary: var(--color-white);
+			--color-secondary: var(--color-neutral-300);
+			--color-tertiary: var(--color-neutral-500);
+			--color-background: var(--color-neutral-950);
+			--color-border: var(--color-neutral-800);
 		}
 	}
 }
 
-@layer utilities {
-	@keyframes scale-and-fade-in {
-		from { opacity: 0; transform: scale(.95); }
-		to { opacity: 1; transform: scale(1); }
-	}
-
-	@keyframes scale-and-fade-out {
-		from { opacity: 1; transform: scale(1); }
-		to { opacity: 0; transform: scale(.95); }
+@custom-variant prose {
+	.prose & {
+		@slot;
 	}
 }

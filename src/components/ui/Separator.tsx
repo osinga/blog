@@ -22,7 +22,7 @@ const Separator = ({
 )
 
 const styles = {
-	prose: 'prose:my-8 prose:sm:my-14',
+	prose: 'prose:my-8 sm:prose:my-14',
 	variants: {
 		horizontal: 'h-px w-full',
 		vertical: 'h-full w-px',

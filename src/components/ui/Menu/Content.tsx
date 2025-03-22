@@ -10,10 +10,10 @@ const Content = ({
 		<Primitive.Content
 			align="start"
 			className={[
-				'min-w-[theme(spacing.32)] p-1 z-20',
+				'min-w-32 p-1 z-20',
 				'border bg-white rounded-md shadow-md dark:bg-gray-900',
-				'data-[state=open]:animate-scaleAndFadeIn data-[state=closed]:animate-scaleAndFadeOut',
-				'origin-[--radix-dropdown-menu-content-transform-origin]',
+				'data-[state=open]:animate-scale-and-fade-in data-[state=closed]:animate-scale-and-fade-out',
+				'origin-(--radix-dropdown-menu-content-transform-origin)',
 				className,
 			].join(' ')}
 			loop

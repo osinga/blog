@@ -23,7 +23,7 @@ const List = ({
 }
 
 const styles = {
-	prose: 'prose:my-4 prose:pl-8 prose:[li_&]:my-2',
+	prose: 'prose:my-4 prose:pl-8 in-[li]:prose:my-2',
 	variants: {
 		ordered: 'list-decimal',
 		unordered: 'list-disc',

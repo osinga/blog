@@ -10,7 +10,7 @@ const Separator = ({
 }: SeparatorProps) => (
 	<Primitive.Separator
 		asChild
-		className={`-mx-1 my-1 !w-auto ${className}`}
+		className={`-mx-1 my-1 w-auto! ${className}`}
 		{...props}
 	>
 		<UISeparator />

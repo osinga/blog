@@ -20,8 +20,8 @@ const Page = () => (
 			<Heading variant="h2">Projects</Heading>
 			<div className="grid grid-cols-2">
 				<a className="group" href="https://felingua.com">
-					<Heading as="h4" className="transition-colors group-hover:text-accent" variant="h3">
-						Felingua <ArrowUpRight className="inline text-sm" />
+					<Heading as="h4" className="flex items-center gap-2 transition-colors group-hover:text-accent" variant="h3">
+						Felingua <ArrowUpRight className="text-sm" />
 					</Heading>
 					<Paragraph>Language practice made easy.</Paragraph>
 				</a>
