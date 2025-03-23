@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import * as runtime from 'react/jsx-runtime'
 import { Children, isValidElement } from 'react'
 import { readFileSync } from 'node:fs'
@@ -50,7 +52,6 @@ const MDX = ({
 					const child = Children.toArray(props.children).at(1) as React.ReactElement
 					let variant
 
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
 					const content = Children.map((child as any).props.children, (child, index) => {
 						const regex = /^\[\!(NOTE|WARNING)\]/
 
@@ -63,7 +64,6 @@ const MDX = ({
 
 					return variant
 						? <Callout variant={variant}>{content}</Callout>
-							// eslint-disable-next-line @typescript-eslint/no-explicit-any
 						: <Blockquote {...(child as any).props} />
 				},
 				img: (props: Required<Pick<React.ComponentProps<'img'>, 'alt' | 'src'>>) => {
@@ -80,9 +80,7 @@ const MDX = ({
 					)
 				},
 				pre: (props: React.ComponentProps<'pre'>) => isValidElement(props.children) ? (
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
 					<Syntax lang={(props.children.props as any).className.split('-').at(1)}>
-						{/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
 						{(props.children.props as any).children}
 					</Syntax>
 				) : null,
