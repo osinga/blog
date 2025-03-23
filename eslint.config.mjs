@@ -8,6 +8,7 @@ const config = [
 	...compat.config({
 		extends: [
 			'next/core-web-vitals',
+			'next/typescript',
 		],
 	}),
 ]
