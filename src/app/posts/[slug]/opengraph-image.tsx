@@ -54,7 +54,6 @@ const Image = async ({ params }: ImageProps) => {
 			}} />
 
 			<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-				{/* eslint-disable-next-line @next/next/no-img-element */}
 				<img
 					alt="Avatar"
 					height="48"

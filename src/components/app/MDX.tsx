@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import * as runtime from 'react/jsx-runtime'
 import { Children, isValidElement } from 'react'
 import { readFileSync } from 'node:fs'
