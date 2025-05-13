@@ -9,7 +9,7 @@
 		"types": "tsc"
 	},
 	"dependencies": {
-		"feed": "^5.0.0",
+		"feed": "^5.0.1",
 		"lucide-react": "^0.509.0",
 		"next": "^15.3.2",
 		"radix-ui": "^1.3.4",
