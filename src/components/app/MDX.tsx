@@ -66,7 +66,7 @@ const MDX = ({
 						? <Callout variant={variant}>{content}</Callout>
 						: <Blockquote {...(child as any).props} />
 				},
-				img: (props: Required<Pick<React.ComponentProps<'img'>, 'alt' | 'src'>>) => {
+				img: (props: Required<Pick<React.ComponentProps<'img'>, 'alt'>> & { src: string }) => {
 					const image = readFileSync(`${process.cwd()}/public${props.src}`)
 
 					return (
